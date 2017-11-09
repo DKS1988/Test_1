@@ -1,0 +1,16 @@
+%h1 Add test
+
+%p
+  %b Name:
+  = @person.name
+
+= form_tag save_test_person_path do
+
+  .field
+    = select_tag 'test', options_from_collection_for_select(@tests, "id", "name")
+  .actions
+    = submit_tag 'Save'
+
+= link_to 'Show', @person
+\|
+= link_to 'Back', people_path

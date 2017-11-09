@@ -1,0 +1,16 @@
+%h1 Add course
+
+%p
+  %b Name:
+  = @person.name
+
+= form_tag save_course_person_path do
+
+  .field
+    = select_tag 'course', options_from_collection_for_select(@courses, "id", "name")
+  .actions
+    = submit_tag 'Save'
+
+= link_to 'Show', @person
+\|
+= link_to 'Back', people_path

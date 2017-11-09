@@ -20,10 +20,10 @@
       %tr
         %td= person.name
         %td= link_to 'Show', person
-        %td= link_to 'Edit', edit_person_path(person)
-        %td= link_to 'Destroy', person, :method => :delete, :data => { :confirm => 'Are you sure?' }
-        %td= link_to 'Add corse', add_course_path(person)
-        %td= link_to 'Add test', add_test_path(person)
+        / %td= link_to 'Edit', edit_person_path(person)
+        / %td= link_to 'Destroy', person, :method => :delete, :data => { :confirm => 'Are you sure?' }
+        %td= link_to 'Add corse', add_course_person_path(person)
+        %td= link_to 'Add test', add_test_person_path(person)
 
 %br
 

@@ -1,5 +1,5 @@
 class PeopleController < ApplicationController
-  before_action :set_person, only: [:show, :edit, :update, :destroy]
+  before_action :set_person, only: [:show, :edit, :update, :destroy, :add_test, :save_test, :add_course, :save_course]
 
   # GET /people
   # GET /people.json
@@ -59,6 +59,32 @@ class PeopleController < ApplicationController
       format.html { redirect_to people_url, notice: 'Person was successfully destroyed.' }
       format.json { head :no_content }
     end
+  end
+
+
+  def add_test 
+
+    @tests = Test.all
+  end
+
+  def save_test
+    test = Test.find(params[:test])
+    @person.tests << test
+
+    redirect_to @person
+  end
+
+
+  def add_course
+
+    @courses = Course.all
+  end
+
+  def save_course
+    course = Course.find(params[:course])
+    @person.courses << course
+
+    redirect_to @person
   end
 
   private

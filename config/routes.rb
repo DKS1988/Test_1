@@ -1,15 +1,22 @@
 Rails.application.routes.draw do
   resources :tests
   resources :courses
-  resources :groups
-  resources :people
+  resources :groups do
+    get :add_test, on: :member
+    post :save_test, on: :member
+    get :add_course, on: :member
+    post :save_course, on: :member
+  end
+  resources :people do
+    get :add_test, on: :member
+    post :save_test, on: :member
+    get :add_course, on: :member
+    post :save_course, on: :member
+  end
 
   root 'groups#index'
 
-  get 'add_course/:id' => 'courses#add_course', as: :add_course
-  get 'add_test/:id' => 'courses#add_course', as: :add_test
-  get 'add_course_group/:id' => 'courses#add_course', as: :add_course_group
-  get 'add_test_group/:id' => 'courses#add_course', as: :add_test_group
+
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
 

@@ -1,5 +1,5 @@
 class GroupsController < ApplicationController
-  before_action :set_group, only: [:show, :edit, :update, :destroy]
+  before_action :set_group, only: [:show, :edit, :update, :destroy, :add_test, :save_test, :add_course, :save_course]
 
   # GET /groups
   # GET /groups.json
@@ -60,6 +60,38 @@ class GroupsController < ApplicationController
       format.json { head :no_content }
     end
   end
+
+  def add_test 
+
+    @tests = Test.all
+  end
+
+  def save_test
+    test = Test.find(params[:test])
+    @group.people.each do |person|
+      person.tests << test
+    end
+
+    redirect_to @group
+  end
+
+
+
+  def add_course
+
+    @courses = Course.all
+  end
+
+  def save_course
+    course = Course.find(params[:course])
+    @group.people.each do |person|
+      person.courses << course
+    end
+
+    redirect_to @group
+  end
+
+
 
   private
     # Use callbacks to share common setup or constraints between actions.

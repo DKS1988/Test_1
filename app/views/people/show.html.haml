@@ -10,6 +10,15 @@
   %b Group:
   = @person.group_id
 
+%p
+  %b Tests:
+  - @person.tests.each do |test|
+    = test.name
+%p
+  %b Courses:
+  - @person.courses.each do |course|
+    = course.name
+
 = link_to 'Edit', edit_person_path(@person)
 \|
 = link_to 'Back', people_path
