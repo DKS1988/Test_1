@@ -1,0 +1,30 @@
+%h1 Listing groups
+
+%table
+  %tr
+    %th Name
+    %th
+    %th
+    %th
+
+  - @groups.each do |group|
+    %tr
+      %td= group.name
+      %td= link_to 'Show', group
+      %td= link_to 'Edit', edit_group_path(group)
+      %td= link_to 'Destroy', group, :method => :delete, :data => { :confirm => 'Are you sure?' }
+      %td= link_to 'Add corse', add_course_group_path(group)
+      %td= link_to 'Add test', add_test_group_path(group)
+
+    - group.people.each do |person|
+      %tr
+        %td= person.name
+        %td= link_to 'Show', person
+        %td= link_to 'Edit', edit_person_path(person)
+        %td= link_to 'Destroy', person, :method => :delete, :data => { :confirm => 'Are you sure?' }
+        %td= link_to 'Add corse', add_course_path(person)
+        %td= link_to 'Add test', add_test_path(person)
+
+%br
+
+= link_to 'New Group', new_group_path

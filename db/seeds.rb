@@ -4,4 +4,8 @@
 # Examples:
 #
 #   cities = City.create([{ name: 'Chicago' }, { name: 'Copenhagen' }])
-#   Mayor.create(name: 'Emanuel', city: cities.first)
+#   Mayor.create(name: 'Emanuel', city: citi= es.first)
+Person.create(name: 'Администратор', role: '0')
+gr = Group.create(name: '1020')
+Person.create(name: 'Иван', role: '1', group: gr)
+Person.create(name: 'Дмитрий', role: '1', group: gr)
